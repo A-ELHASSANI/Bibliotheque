@@ -1,24 +1,45 @@
-const { Sequelize , DataTypes  } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const sequelize = require('../config/database');
 const Livre = require('./livresModel');
 const Abonne = require('./abonesModel');
 
-const Pret = sequelize.define('prets', {
+const Pret = sequelize.define('Pret', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
     date_pret: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false
-    } ,
+    },
     date_retour: {
-        type: DataTypes.DATE,
-        allowNull: false
-    } 
-},
-{
+        type: Sequelize.DATE
+    },
+    id_livre: {
+        type: Sequelize.INTEGER,
+        references: {
+            model: Livre,
+            key: 'id'
+        }
+    },
+    id_abonne: {
+        type: Sequelize.INTEGER,
+        references: {
+            model: Abonne,
+            key: 'id'
+        }
+    }
+}, {
     tableName: "prets",
-    timestamps: false
+    timestamps: false,
 });
 
-// Pret.belongsTo(Livre, { foreignKey: 'id_livre' });
-// Pret.belongsTo(Abonne, { foreignKey: 'id_abonne' });
+Livre.hasMany(Pret, { foreignKey: 'id_livre' });
+Pret.belongsTo(Livre, { foreignKey: 'id_livre' });
+
+Abonne.hasMany(Pret, { foreignKey: 'id_abonne' });
+Pret.belongsTo(Abonne, { foreignKey: 'id_abonne' });
 
 module.exports = Pret;

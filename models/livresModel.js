@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 const sequelize = require('../config/database');
-const Pret = require('./pretsModel');
 
 const Livre = sequelize.define('Livre', {
     id: {
@@ -16,8 +15,5 @@ const Livre = sequelize.define('Livre', {
     tableName: "livres",
     timestamps: false
 });
-
-Livre.hasMany(Pret, { foreignKey: "LivreId" });
-Pret.belongsTo(Livre , {foreignKey : "LivreId"});
 
 module.exports = Livre;

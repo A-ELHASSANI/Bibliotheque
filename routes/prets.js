@@ -4,9 +4,12 @@ const pretController = require('../controllers/pretsController');
 
 router.get('/', pretController.getAllPrets);
 router.post('/', pretController.createPret);
+router.get('/pretsDetails', pretController.getPretsDetails);
+router.get('/livrePrets', pretController.getLivrePrets);
 router.get('/:id', pretController.getPretById);
 router.put('/:id', pretController.updatePret);
 router.delete('/:id', pretController.deletePret);
+
 
 module.exports = router;
 

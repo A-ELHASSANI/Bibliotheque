@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "firstname": "Omar",
-        "lastname": "Omar",
-        "age": 20
+        "firstname": "Anas",
+        "lastname": "Elhassani",
+        "age": 25
     },
     {
         "id": 2,
-        "firstname": "Ahmed",
-        "lastname": "Ahmed",
-        "age": 25
+        "firstname": "TESTER",
+        "lastname": "tester",
+        "age": 30
     }
 ]
