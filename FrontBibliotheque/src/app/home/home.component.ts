@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+<<<<<<< HEAD
   nom = 'Elhassani Anas';
+=======
+  nom = 'Elhassani anas';
+>>>>>>> a29e04afe3ae0edbb8ab6df4739a9bbf1335aa7a
 }
